@@ -23,7 +23,6 @@ class rectangle
 		return false;
 	}
 
-	// Driver code
 	public static void Main()
 	{
 
