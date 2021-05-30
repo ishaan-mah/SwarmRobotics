@@ -17,7 +17,7 @@ class rectangle
 	}
 	static bool FindPoint(double x1, double y1, double x2, double y2, double x, double y)
 	{
-		if (x > x1 && x < x2 &&y > y1 && y < y2)
+		if (x >= x1 && x <= x2 && y >= y1 && y <= y2)
 			return true;
 		return false;
 	}
