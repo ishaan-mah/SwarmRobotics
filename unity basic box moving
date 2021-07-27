@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class boxmove : MonoBehaviour
+{
+    public float w = 10f;
+    float theta = 0;
+
+    // Update is called once per frame
+    void Update()
+    {
+        theta =theta+ (w * Mathf.Deg2Rad)/30.0f;
+        float x = 16 * Mathf.Pow(Mathf.Sin(theta), 3);
+        float z = 13 * Mathf.Cos(theta) - 5 * Mathf.Cos(2 * theta) - 2 * Mathf.Cos(3 * theta) - Mathf.Cos(4 * theta);
+        transform.position = new Vector3(x, transform.position.y, z);
+        transform.Rotate(Vector3.up * 10);
+    }
+}
