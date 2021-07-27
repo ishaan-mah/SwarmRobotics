@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class avoid : MonoBehaviour
+{
+    //public Transform pseudo;
+    public Transform player;
+    public Collider play;
+    public Collider pseudo;
+    public Transform goal;
+    int f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        f = 1;
+        Physics.IgnoreCollision(play, pseudo, true);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(f==1)
+        player.position += Vector3.forward * Time.deltaTime;
+        Physics.IgnoreCollision(play, pseudo,true);
+        //if (player.position != goal.position)
+        //player.position += Vector3.MoveTowards(player.position, goal.position, 0f);
+        //pseu.AddForce(goal.position*1.0f);
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        f = 0;
+        if (collision.gameObject.name == "obstacle")
+        {
+            player.position += Vector3.right * Time.deltaTime;
+            Physics.IgnoreCollision(play, pseudo, true);
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        f = 0;
+        if (collision.gameObject.name == "obstacle")
+        {
+            player.position += Vector3.right * Time.deltaTime;
+            Physics.IgnoreCollision(play, pseudo, true);
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        f = 1;
+        if (collision.gameObject.name == "obstacle")
+        {
+            player.position += Vector3.left * Time.deltaTime;
+            Physics.IgnoreCollision(play, pseudo, true);
+        }
+    }
+}
