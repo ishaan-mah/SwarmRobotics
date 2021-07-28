@@ -13,10 +13,7 @@ let flag=0;    //flag
 let numObs;
 let Obs=[];
 
-function fitnessFunc(x){
-   // return numrows*numcol*10/(numcol*numrows-numVisited+1);
-  return 1;
-}
+
 function velCalc(a,b){
   let updatedVel=[1000000000,10000000000];
   let VEL2=[];//vector storing velocity towards possible cells with minimum distance
@@ -24,8 +21,8 @@ function velCalc(a,b){
     for(let j=0;j<numcol;j++){
         if(pot[i][j]==-1&&abs(updatedVel[0])+abs(updatedVel[1])>abs(i-int(a/width))+abs(j-int(b/width))){
           VEL2=[]; 
-          updatedVel[0]=fitnessFunc(numVisited)*(i-int(a/width));
-           updatedVel[1]=fitnessFunc(numVisited)*(j-int(b/width));
+          updatedVel[0]=i-int(a/width);
+           updatedVel[1]=j-int(b/width);
            VEL2[0]=[];
            VEL2[0][0]=updatedVel[0];
            VEL2[0][1]=updatedVel[1];
@@ -59,8 +56,8 @@ function setup() {
     x=int(random(2,5));
     y=int(random(2,5));
     Obs[i]=[];
-    Obs[i][0]=int(random(0,canvas_size-60));
-    Obs[i][1]=int(random(0,canvas_size-60));
+    Obs[i][0]=int(random(30,canvas_size-60));
+    Obs[i][1]=int(random(30,canvas_size-60));
     pot[int(Obs[i][0]/width)][int(Obs[i][1]/width)]=10000;
     fill(0,0,0);
     //random size of obstacle
