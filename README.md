@@ -9,3 +9,7 @@ This code assumes that bot's sensor work in only its grid and can detect obstacl
 search 3* 3
 Run the code in p5js compiler
 This code assumes that bot's sensor work in a 3* 3 box around it and can detect obstacles and goals in it
+
+Link for presentation: https://docs.google.com/presentation/d/1cfZVpFdjLJXMhPSuHX8nIfNv__M79CgPZBQl6XQA1vQ/edit?usp=sharing
+
+Link for documentation: https://docs.google.com/document/d/1-DJ4rjipuMUcPkdJkgZMl39Z2LnlIDS44L7w1igSdaA/edit
